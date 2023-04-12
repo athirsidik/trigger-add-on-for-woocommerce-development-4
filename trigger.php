@@ -210,6 +210,9 @@ class Complete_Woocommerce_Trigger_Plugin
 
 			error_log($order_id);
 			
+
+			/////////////////////////////////////////////
+
 			
 			// API URL
 				
@@ -228,6 +231,7 @@ class Complete_Woocommerce_Trigger_Plugin
 			
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			
+			$objOrder['status'] = array('pending', 'cancelled', 'failed');
 			$load = json_encode($objOrder);
 			
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $load);
